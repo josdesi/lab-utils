@@ -3,6 +3,16 @@ import os
 
 app = FastAPI()
 
+
+
+@app.get("/")
+async def health_check():
+    return {
+        "status": "healthy",
+        "service": "high_cpu",
+        "version": "1.0.0"
+    }
+
 @app.get("/burn")
 async def burn():
     try:
